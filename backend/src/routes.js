@@ -11,7 +11,7 @@ routes.get('/ongs', ongController.index)
 routes.post('/ongs', ongController.create)
 
 routes.get('/profile', profileController.index)
-routes.get('/sessions', sessionController.create)
+routes.post('/sessions', sessionController.create)
 
 routes.get('/incidents', incidentController.index)
 routes.post('/incidents', incidentController.create)
