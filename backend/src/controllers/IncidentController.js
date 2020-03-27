@@ -1,4 +1,4 @@
-const connection = require('../database/connection')
+const connection = require('../database')
 
 const PER_PAGE = 5
 
@@ -10,14 +10,13 @@ module.exports = {
       .count('* as total')
       .first()
 
-    res.header('X-Total-Count', count['total'])
-
     const incidents = await connection('incidents')
       .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
       .limit(PER_PAGE)
       .offset((page - 1) * PER_PAGE)
       .select(['incidents.*', 'ongs.name', 'ongs.email', 'ongs.whatsapp', 'ongs.city', 'ongs.uf'])
-    return res.json(incidents)
+
+    return res.header('X-Total-Count', count.total).json(incidents)
   },
   async create(req, res) {
     const { title, description, value } = req.body
@@ -42,7 +41,7 @@ module.exports = {
       .first()
 
     if (!incident) {
-      return res.status(404).json({ error: 'Ocorreu um erro' })
+      return res.status(404).json({ error: 'Caso inexistente' })
     }
 
     if (incident.ong_id !== ong_id) {
