@@ -28,14 +28,14 @@ Fullstack | Backend, Frontend and Mobile applications
 
 ### Requirements
 
-- [] node installed
-- [] npm installed
-- [] MacOS (to run iOS version)
-- [] Android emualtor (to run android version)
+- [ ] node installed
+- [ ] npm installed
+- [ ] MacOS (to run iOS version)
+- [ ] Android emualtor (to run android version)
 
 ### First step
 
-- [] run `npm install` for folder (backend, frontend, mobile)
+- [ ] run `npm install` for each folder (backend, frontend, mobile)
 
 #### Backend
 
