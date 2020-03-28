@@ -21,8 +21,7 @@ const Register = () => {
     event.preventDefault()
 
     try {
-      const res = await api.post('/ongs', ong)
-      alert(`Seu id de Login é ${res.data.id}`)
+      await api.post('/ongs', ong)
 
       history.push('/')
     } catch (err) {

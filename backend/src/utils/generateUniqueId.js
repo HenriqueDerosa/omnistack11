@@ -1,5 +1,5 @@
 const crypto = require('crypto')
 
 module.exports = () => {
-  return crypto.randomBytes(8).toString('HEX')
+  return crypto.randomBytes(4).toString('HEX')
 }

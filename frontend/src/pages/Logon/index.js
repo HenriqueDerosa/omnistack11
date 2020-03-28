@@ -18,7 +18,7 @@ const Logon = () => {
       const response = await api.post('sessions', { id })
       localStorage.setItem('ongId', id)
       localStorage.setItem('ongName', response.data.name)
-      alert(`Bem vindo, ${response.data.name}`)
+
       history.push('/perfil')
     } catch (err) {
       alert('Erro, tente mais tarde')

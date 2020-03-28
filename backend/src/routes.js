@@ -29,12 +29,30 @@ routes.post(
   }),
   ongController.create
 )
+routes.delete(
+  '/ongs/:id',
+  celebrate({
+    [Segments.PARAMS]: Joi.object().keys({
+      id: Joi.string()
+        .length(8)
+        .required(),
+    }),
+    [Segments.HEADERS]: Joi.object({
+      authorization: Joi.string()
+        .length(8)
+        .required(),
+    }).unknown(),
+  }),
+  ongController.delete
+)
 
 routes.get(
   '/profile',
   celebrate({
     [Segments.HEADERS]: Joi.object({
-      authorization: Joi.string().required(),
+      authorization: Joi.string()
+        .length(8)
+        .required(),
     }).unknown(),
   }),
   profileController.index
