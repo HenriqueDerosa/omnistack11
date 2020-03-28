@@ -54,7 +54,7 @@ const Profile = () => {
           Authorization: ongId,
         },
       })
-      console.log(id, incidents)
+
       setIncidents(incidents.filter(i => i.id !== Number(id)))
     } catch (err) {
       alert('Erro, tente mais tarde')
