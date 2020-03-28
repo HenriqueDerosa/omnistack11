@@ -36,7 +36,6 @@ module.exports = {
       return res.status(404).json({ error: 'Ong inexistente' })
     }
 
-    console.log(ong, ong_id)
     if (ong.id !== ong_id) {
       return res.status(401).json({ error: 'Operação não permitida' })
     }
